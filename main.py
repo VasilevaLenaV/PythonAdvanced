@@ -5,13 +5,13 @@
 # ✔ Какие вещи есть у всех друзей кроме одного и имя того, у кого данная вещь отсутствует
 # ✔ Для решения используйте операции с множествами. Код должен расширяться на любое большее количество друзей.
 
-
 friends = {
     'Паша' : ('спальник', 'фляга', 'дождевик', 'карта', 'спички'),
     'Миша' : ('спальник', 'сидушка', 'дождевик', 'кастрюля', 'горелка'),
     'Саша' : ('спальник', 'сидушка', 'дождевик', 'аптечка', 'фляга')
 }
 
+# Какие вещи взяли все три друга
 a = list(friends.values())
 lst = []
 count = 0
@@ -26,6 +26,27 @@ a = set(friends['Паша'])
 b = set(friends['Миша'])
 c = set(friends['Саша'])
 print(f'У Паши уникальные вещи {a.difference(b)}')
+
+common_items = set.intersection(*[set(items) for items in friends.values()])
+
+# Какие вещи уникальны, есть только у одного друга и имя этого друга
+unique_items = dict()
+for friend, items in friends.items():
+    filter_friends = dict(filter(lambda k: k[0] != friend, friends.items()))
+    common_ = set.union(*[set(items) for items in filter_friends.values()]) - common_items
+    unique_items[friend] = (set(items) - common_items).difference(common_)
+
+print(unique_items)
+# Какие вещи есть у всех друзей кроме одного и имя того, у кого данная вещь отсутствует
+unique_one_items = dict()
+for friend, items in friends.items():
+    filter_friends = dict(filter(lambda k: k[0] != friend, friends.items()))
+    common_ = set.intersection(*[set(item) for item in filter_friends.values()]) - common_items
+
+    if common_:
+        unique_one_items[friend] = common_
+
+print(unique_one_items)
 
 # 2. Дан список повторяющихся элементов. Вернуть список с дублирующимися элементами.
 # В результирующем списке не должно быть дубликатов.
@@ -54,9 +75,7 @@ for str in txt:
     a[str] = txt.count(str)
 
 res = dict(sorted(a.items(), key=lambda x: x[1], reverse=True)[:10])
-
 print(res)
-
 
 # 4. Создайте словарь со списком вещей для похода в качестве ключа и их массой в качестве значения.
 # Определите какие вещи влезут в рюкзак передав его максимальную грузоподъёмность.
