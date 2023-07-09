@@ -1,16 +1,38 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+# 1.Напишите функцию, которая принимает на вход строку — абсолютный путь до файла.
+# Функция возвращает кортеж из трёх элементов: путь, имя файла, расширение файла.
+import os
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def split_path(file_path):
+    path, filename = os.path.split(file_path)
+    name, extension = os.path.splitext(filename)
+    return path, name, extension
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+result_path = os.path.abspath('main.py')
+print(split_path(result_path))
+
+# 2.Напишите однострочный генератор словаря, который принимает на вход три списка одинаковой длины:
+# имена str, ставка int, премия str с указанием процентов вида «10.25%». В результате получаем словарь с именем в качестве ключа и суммой премии в качестве значения.
+# Сумма рассчитывается как ставка умноженная на процент премии
+
+names = ["Иванов", "Петров", "Сидоров"]
+rates = [100, 200, 300]
+bonuses = ["10.25%", "15%", "5.5%"]
+
+result_gen_dict = {name: rate * float(bonus.strip("%")) / 100 for name, rate, bonus in zip(names, rates, bonuses)}
+
+print(result_gen_dict)
+
+
+# 3.Создайте функцию генератор чисел Фибоначчи (см. Википедию)
+def fibonacci_gen():
+    a, b = 0, 1
+    while True:
+        yield a
+        a, b = b, a + b
+
+
+fibonacci_ = fibonacci_gen()
+for i in range(5):
+    print(next(fibonacci_))
