@@ -1,4 +1,3 @@
-
 from base_chess.chess import queen_will_beat_queen
 from base_chess.chess import random_queen_arrangement
 from base_chess.chess import prefill_queens
@@ -34,4 +33,3 @@ for arrangement in random_queen_arrangement():
     count += 1
     if count == 4:
         break
-
