@@ -1,3 +1,4 @@
+
 import os.path
 
 from base_serialization.serialization import read_csv
@@ -31,3 +32,4 @@ print(csv_to_pickle(task2))
 # -Для файлов сохраните его размер в байтах, а для директорий размер файлов в ней с учётом всех вложенных файлов и директорий.
 
 get_folder_info(os.path.curdir, os.path.curdir + '/serial/')
+
