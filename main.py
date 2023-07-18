@@ -11,4 +11,3 @@ gen_random_numbers('numbers.csv')
 find_roots_quadratic('numbers.csv')
 # * Декоратор, сохраняющий переданные параметры и результаты работы функции в json файл.
 test_function(10, 5)
-
