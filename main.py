@@ -1,3 +1,4 @@
+
 from Student import Student
 
 student = Student("Иванов Иван Иванович", "items.csv")
