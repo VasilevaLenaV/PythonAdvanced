@@ -1,16 +1,16 @@
-# This is a sample Python script.
+from Student import Student
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+student = Student("Иванов Иван Иванович", "items.csv")
 
+student.add_score("Математика", 4, 85)
+student.add_score("Математика", 5, 92)
+student.add_score("Математика", 3, 78)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+student.add_score("История", 5, 90)
+student.add_score("История", 4, 85)
+student.add_score("История", 4, 80)
 
+student.add_score("Программирование", 2, 60)
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print(student.print_average())
+print(student.print_overall_average())
