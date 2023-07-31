@@ -1,0 +1,17 @@
+[
+	{
+		"name": "Ivanov",
+		"user_id": 1,
+		"access_level": 1
+	},
+	{
+		"name": "Petrov",
+		"user_id": 2,
+		"access_level": 1
+	},
+	{
+		"name": "Sidorov",
+		"user_id": 3,
+		"access_level": 7
+	}
+]
