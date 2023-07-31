@@ -1,16 +1,18 @@
-# This is a sample Python script.
+from task3 import AccessError, LevelError
+from task5 import Project
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+prj = Project()
+prj.fill_users()
 
+# Вход пользователя в систему
+try:
+    user_level = prj.login("Ivanov", 5)
+    print(f"User level: {user_level}")
+except AccessError as e:
+    print(e)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+# Добавление пользователя
+try:
+    prj.add_user("Denisov", 123, 2)
+except LevelError as e:
+    print(e)
