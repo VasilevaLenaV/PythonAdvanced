@@ -1,16 +1,31 @@
-# This is a sample Python script.
+# На семинаре 13 был создан проект по работе с пользователями (имя, id, уровень).
+# Напишите 3-7 тестов pytest для данного проекта.
+# Используйте фикстуры.
+import pytest
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from task3 import AccessError, LevelError, IOUserError
+from task5 import Project
+
+prj = Project()
+prj.fill_users()
+
+# Вход пользователя в систему
+try:
+    user_level = prj.login("Ivanov", 5)
+    print(f"User level: {user_level}")
+
+except AccessError as e:
+    print(e)
+
+# Добавление пользователя
+try:
+    prj.add_user("Denisov", 10, 100)
+except LevelError as e:
+    print(e)
+except IOUserError as u:
+    print(u)
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+if __name__ == "__main__":
+    pytest.main()
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
