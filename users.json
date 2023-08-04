@@ -1,0 +1,20 @@
+[
+	{
+		"name": "Ivanov",
+		"user_id": 1,
+		"access_level": 9,
+		"roles": ["user","reader"]
+	},
+	{
+		"name": "Petrov",
+		"user_id": 2,
+		"access_level": 9,
+		"roles": ["admin"]
+	},
+	{
+		"name": "Sidorov",
+		"user_id": 3,
+		"access_level": 7,
+		"roles": ["user","editor","publisher"]
+	}
+]
